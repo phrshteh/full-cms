@@ -1,0 +1,19 @@
+{
+    "name": "phrshte/full-cms",
+    "description": "a full cms package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Phrshte\\FullCms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "phrshte",
+            "email": "frmohammadi007@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^7.5"
+    }
+}
