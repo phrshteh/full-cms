@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::name('admin.')->middleware(['auth:api', 'role:admin'])->prefix('admin')->group(function () {
+Route::name('admin.')->middleware(['auth:'.config('cms.auth_middleware'), 'role:admin'])->prefix('admin')->group(function () {
 
     Route::apiResource('categories', AdminCategoryController::class);
     Route::apiResource('comments', AdminCommentController::class);

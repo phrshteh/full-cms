@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'path' => 'cms'
+    'auth_middleware' => 'api' , //api or sanctum
 ];
