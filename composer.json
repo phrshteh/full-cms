@@ -15,5 +15,22 @@
     ],
     "require-dev": {
         "orchestra/testbench": "^7.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Phrshte\\FullCms\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Phrshte\\FullCms\\CMSBaseServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "intervention/image": "^2.7",
+        "spatie/laravel-permission": "^5.5",
+        "laravel/passport": "^10.4"
     }
 }
