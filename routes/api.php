@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::name('admin.')->middleware(['auth:'.config('cms.auth_middleware'), 'role:admin'])->prefix('admin')->group(function () {
+Route::name('admin.')->middleware(['auth:'.config('cms.auth_middleware'), 'role:admin'])->prefix('api/admin')->group(function () {
 
     Route::apiResource('categories', AdminCategoryController::class);
     Route::apiResource('comments', AdminCommentController::class);
@@ -43,11 +43,14 @@ Route::name('admin.')->middleware(['auth:'.config('cms.auth_middleware'), 'role:
 
 });
 
-Route::apiResource('contents', ContentController::class)->only(['index', 'show']);
-Route::apiResource('categories', CategoryController::class);
-Route::get('/categories/{category}/{content}', [ContentController::class, 'show']);
-Route::post('comments', [CommentController::class, 'store']);
-Route::get('contents-search', [ContentSearchController::class, 'index']);
+
+Route::prefix('api')->group(function () {
+    Route::apiResource('contents', ContentController::class)->only(['index', 'show']);
+    Route::apiResource('categories', CategoryController::class);
+    Route::get('/categories/{category}/{content}', [ContentController::class, 'show']);
+    Route::post('comments', [CommentController::class, 'store']);
+    Route::get('contents-search', [ContentSearchController::class, 'index']);
+});
 
 
 
