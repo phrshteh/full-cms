@@ -98,7 +98,7 @@ class ContentRequest extends FormRequest
                 $category               = Category::findOrFail($validator->attributes()['category_id']);
                 $extraFieldRequiredKeys = $category->extraFields()->where('optional', 0)->pluck('id')->toArray();
 
-                if (array_key_exists('fields', $validator->attributes()) and $validator->attributes()['fields'][0]) {
+                if (array_key_exists('fields', $validator->attributes())) {
                     foreach ($validator->attributes()['fields'] as $attribute) {
                         $filledKeys[] = $attribute['field_id'];
                     }
@@ -116,7 +116,7 @@ class ContentRequest extends FormRequest
                     }
                 }
 
-                if (array_key_exists('fields', $validator->attributes()) and $validator->attributes()['fields'][0]) {
+                if (array_key_exists('fields', $validator->attributes())) {
                     foreach ($validator->attributes()['fields'] as $attribute) {
                         $extraField = ExtraField::where('id', $attribute['field_id'])->first();
 
