@@ -2,9 +2,9 @@
 
 namespace Phrshte\FullCms\Http\Requests;
 
-use App\Models\Category;
-use App\Models\ExtraField;
-use App\Models\Media;
+use Phrshte\FullCms\Models\Category;
+use Phrshte\FullCms\Models\ExtraField;
+use Phrshte\FullCms\Models\Media;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
